@@ -1,0 +1,23 @@
+{
+  "name": "mind-search-today",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-static": "^0.7.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolschner/mind-search-today.git"
+  },
+  "author": "Rhett Olschner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolschner/mind-search-today/issues"
+  },
+  "homepage": "https://github.com/rolschner/mind-search-today#readme"
+}
