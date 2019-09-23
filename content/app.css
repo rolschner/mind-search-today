@@ -1,0 +1,55 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+#header {
+  background: url("../imgs/dan-meyers-9gBhMuAmiPA-unsplash.jpg");
+  /* Set a specific height */
+  height: 500px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+
+#brandingText {
+  color: #8f8cc3;
+}
+
+#mainNavbar .nav-link {
+  color: rgb(143, 155, 194);
+}
+#mainNavbar .nav-link:hover {
+  color: black;
+}
+#mainNavbar {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+a:active {
+  color: black;
+}
+
+.activePage {
+  color: black !important;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.nav-item {
+  white-space: nowrap;
+}
+
+#content h3 {
+  text-align: center;
+  color: hsl(211, 100%, 25%);
+}
+#content p {
+  color: hsl(254, 100%, 25%);
+}
