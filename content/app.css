@@ -46,10 +46,27 @@ h1 {
   white-space: nowrap;
 }
 
-#content h3 {
+.mst-h3-style {
   text-align: center;
   color: hsl(211, 100%, 25%);
 }
-#content p {
+.mst-h3-style p {
+  margin-top: 50px;
   color: hsl(254, 100%, 25%);
+}
+.mst-h3-style li {
+  text-align: left;
+}
+
+#getstarted {
+  margin-top: 80px;
+}
+
+.mst-style {
+  background-color: rgb(143, 155, 194);
+  border: 1px solid rgb(143, 155, 194);
+}
+
+.form-text {
+  color: rgb(143, 155, 194);
 }
