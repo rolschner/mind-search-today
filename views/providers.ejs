@@ -1,0 +1,67 @@
+<% include partials/header %>
+
+<div class="container">
+	<header class="jumbotron">
+
+		<h1>Providers</h1>
+		<p>Search for your provider</p>
+		<form action="">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="stateSel">State</label>
+					<select id="stateSel" class="form-control">
+						<option selected>Choose...</option>
+						<option>DC</option>
+						<option>MD</option>
+						<option>VA</option>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="citySel">City</label>
+					<select id="citySel" class="form-control">
+						<option selected>Choose...</option>
+						<option>Baltimore</option>
+						<option>Catonsville</option>
+						<option>Columbia</option>
+						<option>Elkridge</option>
+						<option>Ellicott City</option>
+						<option>Gaithersburg</option>
+						<option>Glen Burnie</option>
+						<option>Linthicum</option>
+						<option>Nottingham</option>
+						<option>Lutherville</option>
+						<option>Pikesville</option>
+						<option>Rockville</option>
+						<option>Towson</option>
+						<option>Rosedale</option>
+					</select>
+				</div>
+			</div>
+				<button type="submit" class="btn btn-primary">Search</button>
+		</form>
+
+	</header>
+
+
+	<div class="col">
+			<% providers.forEach( (provider) => { %>
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<h4 class="card-title"><%= provider.providerName %></h4>
+						<h6 class="card-subtitle mb-2 text-muted"><%= provider.phoneNumber %></h6>
+						<p>	<%= provider.address %> <br>
+							<%= provider.city %> <%= provider.state %>, <%= provider.zipcode %></p>
+					</div>
+					<p><strong>Hours of Operation: </strong><%= provider.hours %></p>
+					<p><strong>Treatment Services Provided: </strong><%= provider.servicesProvided %></p>
+					<p><strong>Insurance Types Accepted: </strong><%= provider.insuranceAccepted %></p>
+					<a href="<%=provider.url%>" class="card-link"><%= provider.url %></a>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+
+</div>
+
+<% include partials/footer %>

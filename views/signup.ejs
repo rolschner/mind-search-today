@@ -1,0 +1,89 @@
+<% include partials/header %>
+
+    <div class="container-fluid">
+      <div class="d-flex flex-row justify-content-center">
+        <div class="col col-lg-4 d-none d-lg-block">
+          <img src="/images/andrew-neel-QLqNalPe0RA-unsplash.jpg" class="img-fluid" alt="" />
+        </div>
+        <div class="col col-12 col-lg-8">
+          <form>
+            <p>
+              <strong class="form-text"
+                >Please give us some basic information about yourself before we begin your search.</strong
+              >
+            </p>
+            <div class="form-group">
+              <label for="signup-fname">First name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="signup-fname"
+                placeholder="First name"
+                name="fname"
+                required=""
+              />
+              <div class="invalid-feedback">
+                This is a required field.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-lname">Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="signup-lname"
+                placeholder="Last name"
+                name="lname"
+                required=""
+              />
+              <div class="invalid-feedback">
+                This is a required field.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-email">Email</label>
+              <input type="email" class="form-control" id="signup-email" placeholder="Email" name="email" required="" />
+              <div class="invalid-feedback">
+                This is a required field.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-email-2">Confirm email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signup-email-2"
+                placeholder="Email"
+                name="email-2"
+                required=""
+              />
+              <div class="invalid-feedback">
+                This is a required field.
+              </div>
+              <small class="form-text text-muted">Please make sure your email address is correct.</small>
+            </div>
+
+            <div class="form-group">
+              <p class="form-text">Choose what emails you would like to recieve from MindSearch.Today</p>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="signup-newsletter" />
+                <label class="form-check-label" for="signup-newsletter">
+                  I want to receive a monthly newsletter with tips for improving mental health.
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="signup-rcv-contacts" />
+                <label class="form-check-label" for="signup-rcv-contacts">
+                  I want to be contacted by mental health providers near me.
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mst-style">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<% include partials/footer %>
