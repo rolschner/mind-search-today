@@ -6,10 +6,10 @@
           <img src="/images/andrew-neel-QLqNalPe0RA-unsplash.jpg" class="img-fluid" alt="" />
         </div>
         <div class="col col-12 col-lg-8">
-          <form>
+          <form action="/register" method="POST">
             <p>
               <strong class="form-text"
-                >Please give us some basic information about yourself before we begin your search.</strong
+                >Please give us some information about yourself before we begin.</strong
               >
             </p>
             <div class="form-group">
@@ -19,7 +19,7 @@
                 class="form-control"
                 id="signup-fname"
                 placeholder="First name"
-                name="fname"
+                name="firstname"
                 required=""
               />
               <div class="invalid-feedback">
@@ -34,7 +34,7 @@
                 class="form-control"
                 id="signup-lname"
                 placeholder="Last name"
-                name="lname"
+                name="lastname"
                 required=""
               />
               <div class="invalid-feedback">
@@ -56,7 +56,7 @@
                 class="form-control"
                 id="signup-email-2"
                 placeholder="Email"
-                name="email-2"
+                name="username"
                 required=""
               />
               <div class="invalid-feedback">
@@ -65,19 +65,11 @@
               <small class="form-text text-muted">Please make sure your email address is correct.</small>
             </div>
 
-            <div class="form-group">
-              <p class="form-text">Choose what emails you would like to recieve from MindSearch.Today</p>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="signup-newsletter" />
-                <label class="form-check-label" for="signup-newsletter">
-                  I want to receive a monthly newsletter with tips for improving mental health.
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="signup-rcv-contacts" />
-                <label class="form-check-label" for="signup-rcv-contacts">
-                  I want to be contacted by mental health providers near me.
-                </label>
+		    <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="password" name="password" required="" />
+              <div class="invalid-feedback">
+                This is a required field.
               </div>
             </div>
             <button type="submit" class="btn btn-primary mst-style">Sign Up</button>

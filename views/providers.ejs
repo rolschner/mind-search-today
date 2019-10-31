@@ -1,45 +1,44 @@
 <% include partials/header %>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" 
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+	crossorigin="anonymous">
+</script>
+
+
 <div class="container">
 	<header class="jumbotron">
 
 		<h1>Providers</h1>
 		<p>Search for your provider</p>
-		<form action="">
+		<form action="/providers" method="POST">
 			<div class="form-row">
+
 				<div class="form-group col-md-2">
 					<label for="stateSel">State</label>
-					<select id="stateSel" class="form-control">
-						<option selected>Choose...</option>
-						<option>DC</option>
-						<option>MD</option>
-						<option>VA</option>
+					<select name="state" id="stateSel" class="form-control">
+						<% if(curstate === null) { %>
+							<option selected value="nostate"></option>
+						<% } %>
+						<% for( const state of states) { %>
+							<option
+								<% if( curstate !== null && curstate === state) { %>
+									selected
+								<% } %>
+								value="<%= state %>"><%= state %>
+							</option>
+						<% } %>
 					</select>
 				</div>
+
 				<div class="form-group col-md-6">
 					<label for="citySel">City</label>
-					<select id="citySel" class="form-control">
-						<option selected>Choose...</option>
-						<option>Baltimore</option>
-						<option>Catonsville</option>
-						<option>Columbia</option>
-						<option>Elkridge</option>
-						<option>Ellicott City</option>
-						<option>Gaithersburg</option>
-						<option>Glen Burnie</option>
-						<option>Linthicum</option>
-						<option>Nottingham</option>
-						<option>Lutherville</option>
-						<option>Pikesville</option>
-						<option>Rockville</option>
-						<option>Towson</option>
-						<option>Rosedale</option>
-					</select>
+					<select name="city" id="citySel" class="form-control city-select" data-city="<%=curcity%>"></select>
 				</div>
-			</div>
-				<button type="submit" class="btn btn-primary">Search</button>
-		</form>
 
+			</div>
+			<button type="submit" class="btn btn-primary">Search</button>
+		</form>
 	</header>
 
 
@@ -49,7 +48,12 @@
 				<div class="card-body">
 					<div class="card-header">
 						<h4 class="card-title"><%= provider.providerName %></h4>
-						<h6 class="card-subtitle mb-2 text-muted"><%= provider.phoneNumber %></h6>
+						<span itemprop="telephone">
+							<a
+								href="tel:+1"<%= provider.phoneNumber %>></a>
+								<%= provider.phoneNumber %>
+							</a>
+						</span>
 						<p>	<%= provider.address %> <br>
 							<%= provider.city %> <%= provider.state %>, <%= provider.zipcode %></p>
 					</div>
@@ -63,5 +67,38 @@
 	</div>
 
 </div>
+
+<script>
+(function($) {
+	function popCities() {
+		var selectedState = $('#stateSel').val();
+		var selectedCity = $('#citySel').attr('data-city');
+		console.log( 'State: ' + selectedState + ', City: ' + selectedCity );
+		if( selectedState === 'nostate') {
+			$('#citySel').prop( 'disabled', true );
+		} else {
+			$.get('/providers/'+selectedState, function(cities) {
+
+				$('#citySel').contents().remove();
+
+				for(const city of cities) {
+					var newOption = $('<option>' + city + '</option>');
+					newOption.attr('text', city);
+					newOption.attr('value', city);
+					if(selectedCity === city) {
+						newOption.attr('selected', true);
+					}
+					$('#citySel').append(newOption);
+				}
+			});
+			$('#citySel').prop( 'disabled', false );
+		}
+	}
+
+	$('#stateSel').on('change', popCities);
+	$( window ).on('load', popCities);
+})(jQuery)
+
+</script>
 
 <% include partials/footer %>
